@@ -1,0 +1,5 @@
+	<p>
+		Name: <%=h comment.name %><br />
+		<%=h comment.body %>
+		<%= link_to 'Delete Comment', comment, :confirm => 'Are you sure?', :method => :delete %>
+	</p>

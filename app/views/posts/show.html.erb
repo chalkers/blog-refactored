@@ -1,0 +1,21 @@
+<p>
+  <b>Title:</b>
+  <%=h @post.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @post.body %>
+</p>
+
+<p>Add Comment</p>
+<% form_for(@comment) do |f| %>
+	<%= render :partial => 'comment_form', :locals => {:form => f} %>
+<% end %>
+<div id="comments">
+	<%= number_of_comments(@post.comments) %>
+	<%= render :partial => 'comment', :collection => @post.comments %>
+</div>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

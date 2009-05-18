@@ -1,0 +1,11 @@
+	<%= form.hidden_field :post_id, :value => @post.nil? ? @comment.post_id : @post.id %>
+	<%= form.label :name %><br />
+	<%= form.text_field :name %>
+	<%= form.label :email %>
+	<%= form.text_field :email %><br />
+	<%= form.label :website %>
+	<%= form.text_field :website %><br />
+	<%= form.label :body, "Comment" %>
+	<%= form.text_area :body %><br />
+	<%= form.submit "Add Comment"%>
+	
