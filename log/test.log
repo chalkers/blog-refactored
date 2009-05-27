@@ -18231,3 +18231,741 @@ Rendering posts/show
 Rendered posts/_comment_form (1.5ms)
   [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
 Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/posts/1]
+  [4;36;1mPost Create (0.7ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:38', 'Ruby', 'Body', '2009-05-20 17:26:38')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:38) [GET]
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 259ms (View: 252, DB: 2) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (4.6ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 14ms (View: 10, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-20 18:26:39) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}}
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("name", "updated_at", "body", "post_id", "website", "email", "created_at") VALUES('Andrew Chalkley', '2009-05-20 17:26:39', 'Cool Post!', 1, 'http://andrew.chalkley.org', 'andrew@chalkley.org', '2009-05-20 17:26:39')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 6ms (DB: 0) | 302 Found [http://www.example.com/comments]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.6ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered posts/_comment (1.4ms)
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://www.example.com/posts/1]
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'Ruby', 'Body', '2009-05-20 17:26:39')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.8ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"", "body"=>"", "post_id"=>"1", "website"=>"andrew.chalkley.org", "email"=>"andrew@chalkley"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-20 18:26:39) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"", "body"=>"", "post_id"=>"1", "website"=>"andrew.chalkley.org", "email"=>"andrew@chalkley"}}
+Rendering comments/new
+Rendered posts/_comment_form (1.8ms)
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://www.example.com/comments]
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'Ruby', 'Body', '2009-05-20 17:26:39')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 4ms (View: 3, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.7ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-20 18:26:39) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}}
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("name", "updated_at", "body", "post_id", "website", "email", "created_at") VALUES('Andrew Chalkley', '2009-05-20 17:26:39', 'Cool Post!', 1, 'http://andrew.chalkley.org', 'andrew@chalkley.org', '2009-05-20 17:26:39')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/comments]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.6ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered posts/_comment (0.7ms)
+Completed in 9ms (View: 6, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: DELETE /comments/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/posts/1"}
+
+
+Processing CommentsController#destroy (for 127.0.0.1 at 2009-05-20 18:26:39) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 1) [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+Redirected to http://www.example.com/posts/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/comments/1]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments/1"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (102.0ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 107ms (View: 105, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: GET /posts/new with {} and HTTP headers {}
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (1.7ms)
+Completed in 5ms (View: 5, DB: 0) | 200 OK [http://www.example.com/posts/new]
+REQUESTING PAGE: POST /posts with {"commit"=>"Create", "post"=>{"body"=>"body 1", "title"=>"title 1"}} and HTTP headers {"HTTP_REFERER"=>"/posts/new"}
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-05-20 18:26:39) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'title 1', 'body 1', '2009-05-20 17:26:39')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/posts]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.8ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts/1]
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'title 1', 'body 1', '2009-05-20 17:26:39')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'title 2', 'body 2', '2009-05-20 17:26:39')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'title 3', 'body 3', '2009-05-20 17:26:39')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'title 4', 'body 4', '2009-05-20 17:26:39')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET http://www.example.com/posts with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  [4;36;1mPost Load (1.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 9ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: DELETE /posts/3 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/posts"}
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2009-05-20 18:26:39) [DELETE]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+  [4;36;1mPost Destroy (0.1ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 3[0m
+Redirected to http://www.example.com/posts
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/posts/3]
+REQUESTING PAGE: GET http://www.example.com/posts with {} and HTTP headers {"HTTP_REFERER"=>"/posts/3"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/posts]
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'Ruby', 'Body', '2009-05-20 17:26:39')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'Rails', 'Body', '2009-05-20 17:26:39')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'BDD', 'Body', '2009-05-20 17:26:39')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts]
+  [4;36;1mPost Create (0.5ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 17:26:39', 'Ruby', 'Ruby body', '2009-05-20 17:26:39')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Rendered posts/_form (0.9ms)
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://www.example.com/posts/1/edit]
+REQUESTING PAGE: POST /posts/1 with {"commit"=>"Update", "post"=>{"body"=>"body 1", "title"=>"title 1"}, "_method"=>"put"} and HTTP headers {"HTTP_REFERER"=>"/posts/1/edit"}
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-05-20 18:26:39) [PUT]
+  Parameters: {"commit"=>"Update", "post"=>{"title"=>"title 1", "body"=>"body 1"}, "id"=>"1"}
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPost Update (0.2ms)[0m   [0;1mUPDATE "posts" SET "title" = 'title 1', "body" = 'body 1', "updated_at" = '2009-05-20 17:26:39' WHERE "id" = 1[0m
+Redirected to http://www.example.com/posts/1
+Completed in 6ms (DB: 1) | 302 Found [http://www.example.com/posts/1]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 18:26:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.9ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts/1]
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'Ruby', 'Body', '2009-05-20 20:17:47')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 186ms (View: 182, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (3.5ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-20 21:17:47) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}}
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("name", "updated_at", "body", "post_id", "website", "email", "created_at") VALUES('Andrew Chalkley', '2009-05-20 20:17:47', 'Cool Post!', 1, 'http://andrew.chalkley.org', 'andrew@chalkley.org', '2009-05-20 20:17:47')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 5ms (DB: 0) | 302 Found [http://www.example.com/comments]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.5ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered posts/_comment (1.3ms)
+Completed in 9ms (View: 7, DB: 1) | 200 OK [http://www.example.com/posts/1]
+  [4;35;1mPost Create (0.3ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'Ruby', 'Body', '2009-05-20 20:17:47')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.2ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"", "body"=>"", "post_id"=>"1", "website"=>"andrew.chalkley.org", "email"=>"andrew@chalkley"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-20 21:17:47) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"", "body"=>"", "post_id"=>"1", "website"=>"andrew.chalkley.org", "email"=>"andrew@chalkley"}}
+Rendering comments/new
+Rendered posts/_comment_form (1.4ms)
+Completed in 15ms (View: 4, DB: 0) | 200 OK [http://www.example.com/comments]
+  [4;35;1mPost Create (52.3ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'Ruby', 'Body', '2009-05-20 20:17:47')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 3ms (View: 2, DB: 52) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.3ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-20 21:17:47) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}}
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("name", "updated_at", "body", "post_id", "website", "email", "created_at") VALUES('Andrew Chalkley', '2009-05-20 20:17:47', 'Cool Post!', 1, 'http://andrew.chalkley.org', 'andrew@chalkley.org', '2009-05-20 20:17:47')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/comments]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.2ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered posts/_comment (0.5ms)
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: DELETE /comments/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/posts/1"}
+
+
+Processing CommentsController#destroy (for 127.0.0.1 at 2009-05-20 21:17:47) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 1) [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+Redirected to http://www.example.com/posts/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/comments/1]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments/1"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.3ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: GET /posts/new with {} and HTTP headers {}
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (1.4ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/posts/new]
+REQUESTING PAGE: POST /posts with {"commit"=>"Create", "post"=>{"body"=>"body 1", "title"=>"title 1"}} and HTTP headers {"HTTP_REFERER"=>"/posts/new"}
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-05-20 21:17:47) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'title 1', 'body 1', '2009-05-20 20:17:47')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 3ms (DB: 0) | 302 Found [http://www.example.com/posts]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.2ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://www.example.com/posts/1]
+  [4;35;1mPost Create (0.3ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'title 1', 'body 1', '2009-05-20 20:17:47')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'title 2', 'body 2', '2009-05-20 20:17:47')[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'title 3', 'body 3', '2009-05-20 20:17:47')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'title 4', 'body 4', '2009-05-20 20:17:47')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 5ms (View: 4, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET http://www.example.com/posts with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: DELETE /posts/3 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/posts"}
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2009-05-20 21:17:47) [DELETE]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+  [4;36;1mPost Destroy (0.1ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 3[0m
+Redirected to http://www.example.com/posts
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/posts/3]
+REQUESTING PAGE: GET http://www.example.com/posts with {} and HTTP headers {"HTTP_REFERER"=>"/posts/3"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/posts]
+  [4;36;1mPost Create (0.5ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'Ruby', 'Body', '2009-05-20 20:17:47')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'Rails', 'Body', '2009-05-20 20:17:47')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'BDD', 'Body', '2009-05-20 20:17:47')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 5ms (View: 3, DB: 1) | 200 OK [http://www.example.com/posts]
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-20 20:17:47', 'Ruby', 'Ruby body', '2009-05-20 20:17:47')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 3ms (View: 2, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Rendered posts/_form (0.7ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/posts/1/edit]
+REQUESTING PAGE: POST /posts/1 with {"commit"=>"Update", "post"=>{"body"=>"body 1", "title"=>"title 1"}, "_method"=>"put"} and HTTP headers {"HTTP_REFERER"=>"/posts/1/edit"}
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-05-20 21:17:47) [PUT]
+  Parameters: {"commit"=>"Update", "post"=>{"title"=>"title 1", "body"=>"body 1"}, "id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPost Update (0.2ms)[0m   [0;1mUPDATE "posts" SET "title" = 'title 1', "body" = 'body 1', "updated_at" = '2009-05-20 20:17:47' WHERE "id" = 1[0m
+Redirected to http://www.example.com/posts/1
+Completed in 5ms (DB: 0) | 302 Found [http://www.example.com/posts/1]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-20 21:17:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.3ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/posts/1]
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:52', 'Ruby', 'Body', '2009-05-21 14:15:52')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 197ms (View: 194, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (6.2ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-21 15:15:53) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}}
+  [4;36;1mComment Create (0.2ms)[0m   [0;1mINSERT INTO "comments" ("name", "updated_at", "body", "post_id", "website", "email", "created_at") VALUES('Andrew Chalkley', '2009-05-21 14:15:53', 'Cool Post!', 1, 'http://andrew.chalkley.org', 'andrew@chalkley.org', '2009-05-21 14:15:53')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 6ms (DB: 0) | 302 Found [http://www.example.com/comments]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.5ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered posts/_comment (1.6ms)
+Completed in 11ms (View: 8, DB: 2) | 200 OK [http://www.example.com/posts/1]
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'Ruby', 'Body', '2009-05-21 14:15:53')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.6ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"", "body"=>"", "post_id"=>"1", "website"=>"andrew.chalkley.org", "email"=>"andrew@chalkley"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-21 15:15:53) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"", "body"=>"", "post_id"=>"1", "website"=>"andrew.chalkley.org", "email"=>"andrew@chalkley"}}
+Rendering comments/new
+Rendered posts/_comment_form (3.1ms)
+Completed in 28ms (View: 15, DB: 0) | 200 OK [http://www.example.com/comments]
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'Ruby', 'Body', '2009-05-21 14:15:53')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.7ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: POST /comments with {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2009-05-21 15:15:53) [POST]
+  Parameters: {"commit"=>"Add Comment", "comment"=>{"name"=>"Andrew Chalkley", "body"=>"Cool Post!", "post_id"=>"1", "website"=>"http://andrew.chalkley.org", "email"=>"andrew@chalkley.org"}}
+  [4;35;1mComment Create (0.2ms)[0m   [0mINSERT INTO "comments" ("name", "updated_at", "body", "post_id", "website", "email", "created_at") VALUES('Andrew Chalkley', '2009-05-21 14:15:53', 'Cool Post!', 1, 'http://andrew.chalkley.org', 'andrew@chalkley.org', '2009-05-21 14:15:53')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/comments]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.6ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Load (0.3ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered posts/_comment (0.7ms)
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: DELETE /comments/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/posts/1"}
+
+
+Processing CommentsController#destroy (for 127.0.0.1 at 2009-05-21 15:15:53) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mComment Load (0.4ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."id" = 1) [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+Redirected to http://www.example.com/posts/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/comments/1]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/comments/1"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (96.4ms)
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 102ms (View: 99, DB: 1) | 200 OK [http://www.example.com/posts/1]
+REQUESTING PAGE: GET /posts/new with {} and HTTP headers {}
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Rendered posts/_form (1.6ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://www.example.com/posts/new]
+REQUESTING PAGE: POST /posts with {"commit"=>"Create", "post"=>{"body"=>"body 1", "title"=>"title 1"}} and HTTP headers {"HTTP_REFERER"=>"/posts/new"}
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-05-21 15:15:53) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"title"=>"title 1", "body"=>"body 1"}}
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'title 1', 'body 1', '2009-05-21 14:15:53')[0m
+Redirected to http://www.example.com/posts/1
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/posts]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (2.7ms)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 9ms (View: 6, DB: 1) | 200 OK [http://www.example.com/posts/1]
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'title 1', 'body 1', '2009-05-21 14:15:53')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'title 2', 'body 2', '2009-05-21 14:15:53')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'title 3', 'body 3', '2009-05-21 14:15:53')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'title 4', 'body 4', '2009-05-21 14:15:53')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET http://www.example.com/posts with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 7ms (View: 6, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: DELETE /posts/3 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/posts"}
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2009-05-21 15:15:53) [DELETE]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+  [4;36;1mPost Destroy (0.1ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 3[0m
+Redirected to http://www.example.com/posts
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/posts/3]
+REQUESTING PAGE: GET http://www.example.com/posts with {} and HTTP headers {"HTTP_REFERER"=>"/posts/3"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/posts]
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'Ruby', 'Body', '2009-05-21 14:15:53')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'Rails', 'Body', '2009-05-21 14:15:53')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'BDD', 'Body', '2009-05-21 14:15:53')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:53) [GET]
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/posts]
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("updated_at", "title", "body", "created_at") VALUES('2009-05-21 14:15:53', 'Ruby', 'Ruby body', '2009-05-21 14:15:53')[0m
+REQUESTING PAGE: GET /posts with {} and HTTP headers {}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-05-21 15:15:54) [GET]
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://www.example.com/posts]
+REQUESTING PAGE: GET /posts/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"/posts"}
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-05-21 15:15:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Rendered posts/_form (0.9ms)
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/posts/1/edit]
+REQUESTING PAGE: POST /posts/1 with {"commit"=>"Update", "post"=>{"body"=>"body 1", "title"=>"title 1"}, "_method"=>"put"} and HTTP headers {"HTTP_REFERER"=>"/posts/1/edit"}
+
+
+Processing PostsController#update (for 127.0.0.1 at 2009-05-21 15:15:54) [PUT]
+  Parameters: {"commit"=>"Update", "post"=>{"title"=>"title 1", "body"=>"body 1"}, "id"=>"1"}
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mPost Update (0.2ms)[0m   [0;1mUPDATE "posts" SET "title" = 'title 1', "body" = 'body 1', "updated_at" = '2009-05-21 14:15:54' WHERE "id" = 1[0m
+Redirected to http://www.example.com/posts/1
+Completed in 5ms (DB: 0) | 302 Found [http://www.example.com/posts/1]
+REQUESTING PAGE: GET http://www.example.com/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/posts/1"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-05-21 15:15:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (0.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_comment_form (1.5ms)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/posts/1]
